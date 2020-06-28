@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Camera aerial;
-    public Camera observer;
-    public float secondCount;
+    public Camera aerialCamera;
+    public Camera observerCamera;
+    public float counter;
 
     public GameObject player;
     public Vector3 offset;
@@ -14,15 +14,15 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        aerial.enabled = true;
-        observer.enabled = false;
+        aerialCamera.enabled = true;
+        observerCamera.enabled = false;
         // distance between player and camera
         offset = transform.position - player.transform.position;
     }
 
     void Update()
     {
-        UpdateTimerUI();
+        countdown();
     }
 
     void LateUpdate()
@@ -31,14 +31,14 @@ public class CameraMovement : MonoBehaviour
         transform.position = player.transform.position + offset;
     }
 
-    void UpdateTimerUI()
+    void countdown()
     {
-        secondCount += Time.deltaTime;
+        counter += Time.deltaTime;
         // switch to observer camera after 10 seconds
-        if(secondCount > 10)
+        if(counter > 10)
         {
-            aerial.enabled = false;
-            observer.enabled = true;
+            aerialCamera.enabled = false;
+            observerCamera.enabled = true;
         }
     }
 }
