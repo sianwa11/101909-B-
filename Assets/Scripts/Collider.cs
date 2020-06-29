@@ -4,11 +4,19 @@ using UnityEngine.UI;
 public class Collider : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public float respawnTime = 1.0f;
+    //public float respawnTime = 1.0f;
     public Text scoreText;
     public Text lifeText;
     // private int score = 0;
     public int life = 1;
+
+    private void Update()
+    {
+        if(life < 1)
+        {
+            FindObjectOfType<GameManager>().endGame();
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {

@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     public float movementSpeed;
     public float jumpVelocity = 9.0f;
     public float dirX, dirZ;
-    public EnemyController enemy;
+    //public EnemyController enemy;
 
     void Start()
     {
@@ -40,6 +40,11 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(jump * jumpVelocity, ForceMode.Impulse);
             grounded = false;
+        }
+
+        if(rb.position.y < -1f)
+        {
+            FindObjectOfType<GameManager>().endGame();
         }
 
         // make enemy approach when player moves front
