@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
         movementSpeed = 30.0f;
         rb = GetComponent<Rigidbody>();
         jump = new Vector3(0, 2, 0);
-        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
+        // enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyController>();
     }
 
     void OnCollisionStay()
@@ -43,12 +43,12 @@ public class Movement : MonoBehaviour
         }
 
         // make enemy approach when player moves front
-        if (Input.GetAxisRaw("Vertical") == 1)
+        /*if (Input.GetAxisRaw("Vertical") == 1)
         {
             enemy.enemyCalled = true;
         } else
         {
             enemy.enemyCalled = false;
-        }
+        }*/
     }
 }

@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public Transform target;
     public float speed = 30.0f;
     public bool enemyCalled;
     Rigidbody rb;
+    Transform target;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        target = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (enemyCalled)
-        {
+       // if (enemyCalled)
+        //{
             enemyMove();
-        }
+        //}
     }
 
     void enemyMove()
