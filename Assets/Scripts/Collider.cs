@@ -7,7 +7,7 @@ public class Collider : MonoBehaviour
     public float respawnTime = 1.0f;
     public Text scoreText;
     public Text lifeText;
-    private int score = 0;
+    // private int score = 0;
     public int life = 1;
 
     void OnCollisionEnter(Collision collision)
