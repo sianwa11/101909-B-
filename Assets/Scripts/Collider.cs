@@ -6,7 +6,6 @@ public class Collider : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public float deathtime = 0f;
-    public Text scoreText;
     public Text lifeText;
     // private int score = 0;
     public int life = 1;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public float speed = 30.0f;
-    public bool enemyCalled;
+   // public bool enemyCalled;
     Rigidbody rb;
     Transform target;
 
