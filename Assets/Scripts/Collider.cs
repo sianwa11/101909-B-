@@ -1,20 +1,29 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Collider : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    //public float respawnTime = 1.0f;
+    public float deathtime = 0f;
     public Text scoreText;
     public Text lifeText;
     // private int score = 0;
     public int life = 1;
+    public AudioSource deathSound;
+
+    private void Start()
+    {
+        deathSound = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
-        if(life < 1)
+        deathtime += Time.deltaTime;
+        // game over if life is 0
+        if (life == 0 && deathtime > 2f)
         {
-            FindObjectOfType<GameManager>().endGame();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
@@ -24,6 +33,7 @@ public class Collider : MonoBehaviour
         {
             Debug.Log("Enemy !!");
             // play death sound
+            deathSound.Play();
             life -= 1;
             lifeText.text = "Life:" + life;
             // destroy

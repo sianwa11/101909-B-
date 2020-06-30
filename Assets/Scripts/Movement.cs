@@ -42,6 +42,7 @@ public class Movement : MonoBehaviour
             grounded = false;
         }
 
+        // if player falls down start game again
         if(rb.position.y < -1f)
         {
             FindObjectOfType<GameManager>().endGame();
